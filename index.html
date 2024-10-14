@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="tell em.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <!-- Hover Sound Effect -->
+    <audio id="hoverSound" src="hover1.mp3"></audio>
+
+    <!-- Click to Enter Button -->
+    <div id="enterPage">
+        <button onclick="enterSite()">Click to Enter</button>
+    </div>
+
+    <!-- Music Toggle Button -->
+    <button id="musicToggle" onclick="toggleMusic()" class="toggle-button">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <div class="content" style="display:none;">
+        <img src="pfp.gif" alt="Profile Picture" class="profile-pic">
+
+        <div class="info">
+            <h1 class="name">Aditya Shankar Datta</h1>
+            <p class="description">Throughout heaven and earth I alone am the silliest one.</p>
+
+            <div class="social-links">
+                <a href="https://x.com/Mystique_Banda" target="_blank" onmouseover="playHoverSound()" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/MystiqueBanda" target="_blank" onmouseover="playHoverSound()" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aditya-shankar-datta-854192305/" target="_blank" onmouseover="playHoverSound()" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://open.spotify.com/user/31gaqbiuyrbator2ykxlyuut5smq" target="_blank" onmouseover="playHoverSound()" data-tooltip="Spotify"><i class="fab fa-spotify"></i></a>
+                <a href="https://youtube.com/@mystique_banda" target="_blank" onmouseover="playHoverSound()" data-tooltip="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com/professional_balls_fondler" target="_blank" onmouseover="playHoverSound()" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/tHGt5uKuWR" target="_blank" onmouseover="playHoverSound()" data-tooltip="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://www.reddit.com/user/Mystique_Banda/" target="_blank" onmouseover="playHoverSound()" data-tooltip="Reddit"><i class="fab fa-reddit"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
