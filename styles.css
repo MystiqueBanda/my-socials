@@ -1,3 +1,4 @@
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -180,4 +181,45 @@ body {
 #musicToggle:hover {
     background-color: rgba(255, 255, 255, 0.8);
     transform: scale(1.05);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Adjust the content box width */
+    .content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    /* Make the profile picture smaller */
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Adjust the name font size */
+    .name {
+        font-size: 24px;
+    }
+
+    /* Adjust the description font size */
+    .description {
+        font-size: 16px;
+    }
+
+    /* Adjust social media icon size */
+    .social-links a {
+        font-size: 36px;
+    }
+
+    /* Enter Button */
+    #enterPage button {
+        padding: 12px 30px;
+        font-size: 18px;
+    }
+
+    /* Music Toggle Button */
+    #musicToggle {
+        padding: 8px 12px;
+    }
 }
