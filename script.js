@@ -59,3 +59,13 @@ document.querySelectorAll('.social-links a').forEach((link) => {
         hitSound.play(); 
     });
 });
+
+document.getElementById("enterButton").addEventListener("click", function() {
+    document.getElementById("enterPage").style.backdropFilter = "blur(0px)";
+    document.querySelector("#enterPage::before").style.filter = "blur(0px)";
+    document.querySelector("#enterPage::before").style.opacity = "0"; // Fade out effect
+    setTimeout(() => {
+        document.getElementById("enterPage").style.display = "none"; // Hide after transition
+    }, 1000); // Match the transition time
+});
+
