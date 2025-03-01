@@ -8,6 +8,9 @@ function enterSite() {
     // Play music
     music.play(); 
 
+    // Add class to trigger blur removal
+    enterPage.classList.add("remove-blur");
+
     // Instantly hide the enterPage button
     enterPage.style.display = "none";
 
@@ -15,8 +18,7 @@ function enterSite() {
     content.style.display = "block";
     content.style.opacity = "1";
 
-    // Add class to trigger blur removal
-    enterPage.classList.add("remove-blur");
+
 
     // Wait for blur transition, then hide enterPage
     setTimeout(() => {
