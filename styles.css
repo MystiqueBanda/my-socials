@@ -57,6 +57,11 @@ body {
     backdrop-filter: blur(20px);
 }
 
+.remove-blur::before {
+    filter: blur(0px); /* Remove blur when class is added */
+}
+
+
 #enterPage::before {
     content: "";
     position: absolute;
@@ -68,9 +73,8 @@ body {
     background-size: cover;
     filter: blur(10px);
     z-index: -1;
-    transition: filter 1s ease, opacity 1s ease; /* Smooth transition */
+    transition: filter 1s ease; /* Predefine smooth blur transition */
 }
-
 
 /* Enter Button */
 #enterPage {
