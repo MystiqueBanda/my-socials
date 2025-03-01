@@ -2,34 +2,31 @@
 function enterSite() {
     const music = document.getElementById("backgroundMusic");
     const enterPage = document.getElementById("enterPage");
-    const enterPageBg = document.querySelector("#enterPage::before");
     const content = document.querySelector(".content");
     const body = document.body;
 
     // Play music
     music.play(); 
 
-    // Gradually reduce blur and fade out the enter screen
-    enterPage.style.backdropFilter = "blur(20px)"; // Ensure initial blur
+    // Smooth blur removal
     enterPage.style.transition = "backdrop-filter 1s ease, opacity 1s ease";
-    enterPage.style.opacity = "0"; // Fade out effect
+    enterPage.style.backdropFilter = "blur(0px)"; // Reduce blur gradually
+    enterPage.style.opacity = "0"; // Fade out
 
-    // Workaround for ::before pseudo-element (cannot be selected directly in JS)
-    enterPageBg.style.filter = "blur(0px)";
-    enterPageBg.style.opacity = "0";
-
+    // Hide enterPage completely after transition
     setTimeout(() => {
         enterPage.style.display = "none"; // Hide after transition
         body.style.backgroundImage = "url('background.gif')";
         body.style.backgroundRepeat = "no-repeat";
         body.style.backgroundPosition = "center";
         body.style.backgroundSize = "cover";
-        
+
         // Show the main content
         content.style.display = "block"; 
         content.style.opacity = "1"; 
     }, 1000);
 }
+
 
 // Music toggle functionality
 let isMusicPlaying = true;
