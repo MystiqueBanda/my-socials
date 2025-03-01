@@ -2,26 +2,33 @@
 function enterSite() {
     const music = document.getElementById("backgroundMusic");
     const enterPage = document.getElementById("enterPage");
+    const enterPageBg = document.querySelector("#enterPage::before");
     const content = document.querySelector(".content");
     const body = document.body;
 
     // Play music
     music.play(); 
 
-    // Hide the enter button
-    enterPage.style.display = "none"; 
+    // Gradually reduce blur and fade out the enter screen
+    enterPage.style.backdropFilter = "blur(20px)"; // Ensure initial blur
+    enterPage.style.transition = "backdrop-filter 1s ease, opacity 1s ease";
+    enterPage.style.opacity = "0"; // Fade out effect
 
-    // Set the background image to the GIF
-    body.style.backgroundImage = "url('background.gif')";
-    body.style.backgroundRepeat = "no-repeat";
-    body.style.backgroundPosition = "center";
-    body.style.backgroundSize = "cover";
+    // Workaround for ::before pseudo-element (cannot be selected directly in JS)
+    enterPageBg.style.filter = "blur(0px)";
+    enterPageBg.style.opacity = "0";
 
-    // Show the main content after a short delay
     setTimeout(() => {
+        enterPage.style.display = "none"; // Hide after transition
+        body.style.backgroundImage = "url('background.gif')";
+        body.style.backgroundRepeat = "no-repeat";
+        body.style.backgroundPosition = "center";
+        body.style.backgroundSize = "cover";
+        
+        // Show the main content
         content.style.display = "block"; 
         content.style.opacity = "1"; 
-    }, 500);
+    }, 1000);
 }
 
 // Music toggle functionality
@@ -59,13 +66,3 @@ document.querySelectorAll('.social-links a').forEach((link) => {
         hitSound.play(); 
     });
 });
-
-document.getElementById("enterButton").addEventListener("click", function() {
-    document.getElementById("enterPage").style.backdropFilter = "blur(0px)";
-    document.querySelector("#enterPage::before").style.filter = "blur(0px)";
-    document.querySelector("#enterPage::before").style.opacity = "0"; // Fade out effect
-    setTimeout(() => {
-        document.getElementById("enterPage").style.display = "none"; // Hide after transition
-    }, 1000); // Match the transition time
-});
-
