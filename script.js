@@ -7,15 +7,26 @@ function enterSite() {
 
     // Play music
     music.play(); 
+    // Create a new style element to animate blur removal
+    const style = document.createElement("style");
+    style.innerHTML = `
+        #enterPage::before {
+            transition: filter 1s ease;
+            filter: blur(0px);
+        }
+    `;
+    document.head.appendChild(style);
 
-    // Smooth blur removal
-    enterPage.style.transition = "backdrop-filter 1s ease, opacity 1s ease";
-    enterPage.style.backdropFilter = "blur(0px)"; // Reduce blur gradually
+    // Smooth blur removal from backdrop
+    enterPage.style.transition = "opacity 1s ease";
     enterPage.style.opacity = "0"; // Fade out
 
-    // Hide enterPage completely after transition
+    // Hide enterPage after transition
     setTimeout(() => {
-        enterPage.style.display = "none"; // Hide after transition
+        enterPage.style.visibility = "hidden";
+        enterPage.style.pointerEvents = "none";
+
+        // Set the normal background (GIF version)
         body.style.backgroundImage = "url('background.gif')";
         body.style.backgroundRepeat = "no-repeat";
         body.style.backgroundPosition = "center";
@@ -26,7 +37,6 @@ function enterSite() {
         content.style.opacity = "1"; 
     }, 1000);
 }
-
 
 // Music toggle functionality
 let isMusicPlaying = true;
