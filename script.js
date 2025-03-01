@@ -11,24 +11,24 @@ function enterSite() {
     // Add class to trigger blur removal
     enterPage.classList.add("remove-blur");
 
-    // Instantly hide the enterPage button
-    enterPage.style.display = "none";
+    // Hide the enter button immediately (but keep enterPage for blur effect)
+    const enterButton = document.getElementById("enterButton");
+    if (enterButton) enterButton.style.display = "none";
 
     // Instantly show the main content
     content.style.display = "block";
     content.style.opacity = "1";
 
-
-
-    // Wait for blur transition, then hide enterPage
+    // Wait for the blur transition, then remove enterPage completely
     setTimeout(() => {
-        // Set the background image to the GIF
+        enterPage.style.display = "none"; // Now hide enterPage after blur is gone
         body.style.backgroundImage = "url('background.gif')";
         body.style.backgroundRepeat = "no-repeat";
         body.style.backgroundPosition = "center";
         body.style.backgroundSize = "cover";
     }, 1000); // Matches the CSS blur transition time
 }
+
 
 
 // Music toggle functionality
