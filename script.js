@@ -7,7 +7,12 @@ function enterSite() {
 
     // Play music
     music.play(); 
-    // Create a new style element to animate blur removal
+
+    // Remove blur smoothly
+    enterPage.style.transition = "backdrop-filter 1s ease";
+    enterPage.style.backdropFilter = "blur(0px)"; // Reduce blur gradually
+
+    // Also remove the blur from ::before pseudo-element
     const style = document.createElement("style");
     style.innerHTML = `
         #enterPage::before {
@@ -16,10 +21,7 @@ function enterSite() {
         }
     `;
     document.head.appendChild(style);
-
-    // Smooth blur removal from backdrop
-    enterPage.style.transition = "opacity 1s ease";
-    enterPage.style.opacity = "0"; // Fade out
+}
 
     // Hide enterPage after transition
     setTimeout(() => {
