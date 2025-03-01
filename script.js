@@ -8,27 +8,14 @@ function enterSite() {
     // Play music
     music.play(); 
 
-    // Remove blur smoothly
-    enterPage.style.transition = "backdrop-filter 1s ease";
-    enterPage.style.backdropFilter = "blur(0px)"; // Reduce blur gradually
+    // Add class to remove blur smoothly
+    enterPage.classList.add("remove-blur");
 
-    // Also remove the blur from ::before pseudo-element
-    const style = document.createElement("style");
-    style.innerHTML = `
-        #enterPage::before {
-            transition: filter 1s ease;
-            filter: blur(0px);
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-    // Hide enterPage after transition
+    // Wait for blur transition, then hide the enter page
     setTimeout(() => {
-        enterPage.style.visibility = "hidden";
-        enterPage.style.pointerEvents = "none";
+        enterPage.style.display = "none"; 
 
-        // Set the normal background (GIF version)
+        // Set the background image to the GIF
         body.style.backgroundImage = "url('background.gif')";
         body.style.backgroundRepeat = "no-repeat";
         body.style.backgroundPosition = "center";
@@ -37,7 +24,7 @@ function enterSite() {
         // Show the main content
         content.style.display = "block"; 
         content.style.opacity = "1"; 
-    }, 1000);
+    }, 1000); // Matches the CSS blur transition time
 }
 
 // Music toggle functionality
