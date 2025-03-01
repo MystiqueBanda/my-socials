@@ -15,14 +15,19 @@ function enterSite() {
     content.style.display = "block";
     content.style.opacity = "1";
 
-    // Keep enterPage existing (but hidden) so the blur can fade away
+    // Add class to trigger blur removal
     enterPage.classList.add("remove-blur");
 
-    // After blur transition ends, remove enterPage completely
+    // Wait for blur transition, then hide enterPage
     setTimeout(() => {
-        enterPage.remove();
-    }, 1000); // Matches the blur transition time
+        // Set the background image to the GIF
+        body.style.backgroundImage = "url('background.gif')";
+        body.style.backgroundRepeat = "no-repeat";
+        body.style.backgroundPosition = "center";
+        body.style.backgroundSize = "cover";
+    }, 1000); // Matches the CSS blur transition time
 }
+
 
 // Music toggle functionality
 let isMusicPlaying = true;
