@@ -57,10 +57,10 @@ body {
     backdrop-filter: blur(20px);
 }
 
-.remove-blur::before {
-    filter: blur(0px); /* Remove blur when class is added */
+/* When .remove-blur is added, blur fades away smoothly */
+#enterPage.remove-blur::before {
+    filter: blur(0px);
 }
-
 
 #enterPage::before {
     content: "";
